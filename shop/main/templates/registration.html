@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block title %}
+Реєстрація
+{% load static %}
+{% endblock %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<h1 class="intro-headline">Реєстрація</h1>
+<section>
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-xl-11">
+        <div class="p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+				<form method="POST" class="mx-1 mx-md-4">
+				{% csrf_token %}
+				{{ register_form|crispy}}
+				<hr class="my-4">
+				<button class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 btn btn-md text-light bg-dark" type="submit">Зареєструватися</button>
+
+			</form>
+				</div>
+			  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-lg-2 text-align-center">
+			<img class="img-fluid" src="{% static 'main/img/reg-nike.jpg' %}">
+		</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+	<p class="text-center">У вас вже є акаунт? <a href="{% url 'login' %}">Авторизуйтесь</a>, будь ласка.</p>
+</section>
+
+
+{% endblock %}

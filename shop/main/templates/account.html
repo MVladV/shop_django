@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Акаунт
+{% load static %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="intro-headline">Інформація про користувача</h1>
+
+
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-body text-center">
+                <img class="img-account-profile rounded-circle mb-2" src="{% static 'main/img/account-img.png' %}" style="object-fit: fill; width: 175px; height: auto" alt="">
+            </div>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="col-xl-8">
+        <div class="card mb-4">
+            <div class="card-header">Усі дані:</div>
+            <div class="card-body">
+                <form>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1">Ім'я</label>
+                            <div class="">{{ user.name }}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1">Прізвище</label>
+                            <div class="">{{ user.surname }}</div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="mb-3">
+                        <label class="small mb-1">Email</label>
+                        <div class="">{{ user.email }}</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif%}
+{% endblock %}
+
